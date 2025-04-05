@@ -85,15 +85,30 @@ document.addEventListener('DOMContentLoaded', () => {
             appContent.innerHTML = `<p class="error">Category not found or has no drinks.</p><p><a href="#">Back to Categories</a></p>`;
             return;
         }
+
+        // --- Create Category Pills Navigation ---
+        const allCategories = coffeeData.categories || [];
+        const pillsHtml = allCategories.map(cat => `
+            <a href="#category/${cat.id}" 
+               class="category-pill ${cat.id === categoryId ? 'active' : ''}" 
+               data-category-id="${cat.id}">
+                ${cat.name}
+            </a>
+        `).join('');
+        const categoryPillsNav = `<nav class="category-pills-container">${pillsHtml}</nav>`;
+        // --- End Category Pills Navigation ---
+
         const drinksHtml = category.drinks.map(drink => `
             <li class="tile drink-tile" data-drink-id="${drink.id}" data-category-id="${categoryId}">
                 ${drink.name}
             </li>
         `).join('');
-        // Add a back button conceptually (or rely on browser back)
+
+        // Add pills nav before the rest of the content
         appContent.innerHTML = `
+            ${categoryPillsNav} 
             <h2>${category.name}</h2>
-             <p><a href="#" class="back-link">« Back to Categories</a></p>
+            <p><a href="#" class="back-link">« Back to Categories</a></p>
             <ul class="tile-grid">${drinksHtml}</ul>`;
 
         addTileEventListeners('.drink-tile', 'drinkId', (id) => {
