@@ -1,0 +1,9 @@
+Hey, I want to build an educational app for a coffee shop. It's about the drinks that are made at the shop. All the Barista should have a source of truth on how each drink is made.
+
+The current idea is to have a simple app that categorizes drinks into black, milk, non coffee and other. In each category, all the drinks of that category are listed.
+
+The drinks have different requirements. They all will get a video that is hosted either at YouTube or Vimeo and also show which type of cup should be used. Otherwise, each drink can be very different.
+
+From the technical perspective, the whole app should be totally lean and very easy to maintain. This means I want to use vanilla JS, css3, no frameworks and ideally no libraries. For the point of configuration, I want no database. I rather imagine a YAML file where all the categories with all the drinks and all the instructions on how to make the drink are listed. Here I want to leave a note: The app should handle the list of attributes for each drink dynamically, so no matter what's listed it will show as a data list/data sheet to that drink. Also set up the app as a PWA.
+
+From the design perspective, I would like to have as a start screen a tile grid of the categories. When clicking on a tile of a category, the user gets to a new screen with a tile grid of the drinks. When clicking on a drink, the user should see the data sheet of the drink. Ideally as a bottom sheet, like in material design3.
