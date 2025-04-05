@@ -11,12 +11,13 @@ main { padding: 1rem; }
     gap: 1rem;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto; /* Center the grid horizontally */
+    max-width: 720px; /* Add max-width */
 }
 
 .tile {
     background-color: white;
-    padding: 1.5rem 1rem;
+    padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: center;
@@ -24,6 +25,10 @@ main { padding: 1rem; }
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     font-weight: bold;
     color: #4A2F20;
+    aspect-ratio: 1 / 1; /* Make tile square */
+    display: flex;         /* Enable flexbox for centering */
+    align-items: center;   /* Center content vertically */
+    justify-content: center;/* Center content horizontally */
 }
 .tile:hover {
     transform: translateY(-3px);
