@@ -108,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         appContent.innerHTML = `
             ${categoryPillsNav} 
             <h2>${category.name}</h2>
-            <p><a href="#" class="back-link">« Back to Categories</a></p>
             <ul class="tile-grid">${drinksHtml}</ul>`;
 
         addTileEventListeners('.drink-tile', 'drinkId', (id) => {
