@@ -2,7 +2,7 @@
   "name": "Coffee Recipe Guide",
   "short_name": "CoffeeGuide",
   "description": "Internal guide for making coffee drinks.",
-  "start_url": "/index.html",
+  "start_url": "/CoffeeArchive/index.html",
   "display": "standalone",
   "background_color": "#f4f1eb",
   "theme_color": "#4A2F20",
