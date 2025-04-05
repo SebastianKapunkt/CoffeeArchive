@@ -38,17 +38,18 @@ main { padding: 1rem; }
 /* Category Pills Navigation */
 .category-pills-container {
     display: flex;
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    flex-wrap: wrap; /* Allow pills to wrap to the next line */
+    /* overflow-x: auto; */ /* Remove horizontal scrolling */
     gap: 0.5rem;
     padding: 0.75rem 0; /* Add some vertical padding */
     margin-bottom: 1rem; /* Space below pills */
-    /* Hide scrollbar visually but keep functionality */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    /* Ensure scrollbar hiding rules are removed/commented */
+    /* -ms-overflow-style: none; */
+    /* scrollbar-width: none; */
 }
-.category-pills-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-}
+/* .category-pills-container::-webkit-scrollbar {
+    display: none;
+} */
 
 .category-pill {
     display: inline-block;
@@ -69,7 +70,7 @@ main { padding: 1rem; }
 .category-pill.active {
     background-color: #4A2F20; /* Active background (header color) */
     color: white;
-    font-weight: bold;
+
 }
 
 /* Bottom Sheet Styles */
