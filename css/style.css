@@ -83,7 +83,7 @@ main { padding: 1rem; }
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
-    max-height: 80vh; /* Limit height */
+    max-height: 90vh; /* Limit height */
     overflow-y: auto;
     transform: translateY(100%); /* Start hidden below */
     transition: transform 0.3s ease-out;
@@ -139,8 +139,8 @@ main { padding: 1rem; }
 .drink-detail dl { /* Definition list for dynamic attributes */
     margin: 1rem 0;
     display: grid;
-    grid-template-columns: auto 1fr; /* Label and value */
-    gap: 0.5rem 1rem;
+    grid-template-columns: 30% 1fr; /* Label and value */
+    gap: 1rem 1rem;
 }
 .drink-detail dt {
     font-weight: bold;

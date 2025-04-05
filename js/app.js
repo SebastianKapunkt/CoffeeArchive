@@ -34,9 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const hash = window.location.hash;
         hideBottomSheet(); // Close sheet on navigation
 
-        if (!coffeeData) {
-            appContent.innerHTML = `<div class="loading">Loading Recipes...</div>`;
-            return; // Data not loaded yet
+        if (!coffeeData || !coffeeData.categories || coffeeData.categories.length === 0) {
+            // Data not loaded or no categories defined
+            appContent.innerHTML = `<div class="loading">Loading Recipes or No Categories Found...</div>`;
+            return;
         }
 
         if (hash.startsWith('#category/')) {
@@ -44,41 +45,33 @@ document.addEventListener('DOMContentLoaded', () => {
             renderDrinks(categoryId);
         } else if (hash.startsWith('#drink/')) {
             const drinkId = hash.substring('#drink/'.length);
-            // Find the drink and show details (will be rendered by click handler usually)
-            // For direct linking, find and show:
             const drink = findDrinkById(drinkId);
             const category = findCategoryByDrinkId(drinkId);
             if (drink && category) {
-                 // Render the category grid first so back navigation works
+                // Render the correct category's drinks view first
                 renderDrinks(category.id);
                 // Then show the bottom sheet for the specific drink
                 renderDrinkDetails(drink);
                 showBottomSheet();
             } else {
-                renderCategories(); // Fallback to categories if drink not found
+                // Fallback: Invalid drink ID, show first category's drinks
+                const firstCategoryId = coffeeData.categories[0].id;
+                renderDrinks(firstCategoryId);
+                window.location.hash = `#category/${firstCategoryId}`; // Update hash
             }
         } else {
-            renderCategories(); // Default view
+            // Default view: Show the first category's drinks
+            const firstCategoryId = coffeeData.categories[0].id;
+            renderDrinks(firstCategoryId);
+            // Optionally update hash to reflect the default state, 
+            // but avoid adding to history if it was initially empty
+            if (hash !== `#category/${firstCategoryId}`) { 
+                 history.replaceState(null, '', `#category/${firstCategoryId}`);
+            }
         }
     }
 
     // --- Rendering Functions ---
-    function renderCategories() {
-        if (!coffeeData || !coffeeData.categories) {
-            appContent.innerHTML = `<p class="error">No categories found in configuration.</p>`;
-            return;
-        }
-        const categoriesHtml = coffeeData.categories.map(category => `
-            <li class="tile category-tile" data-category-id="${category.id}">
-                ${category.name}
-            </li>
-        `).join('');
-        appContent.innerHTML = `<ul class="tile-grid">${categoriesHtml}</ul>`;
-        addTileEventListeners('.category-tile', 'categoryId', (id) => {
-            window.location.hash = `#category/${id}`;
-        });
-    }
-
     function renderDrinks(categoryId) {
         const category = coffeeData.categories.find(cat => cat.id === categoryId);
         if (!category || !category.drinks) {
