@@ -4,8 +4,8 @@ const urlsToCache = [
     '/index.html',
     '/css/style.css',
     '/js/app.js',
-    '/js/yaml.min.js', // Cache the YAML library
-    '/config.yaml',    // Cache the data source!
+    // '/js/yaml.min.js', // Remove YAML library
+    '/config.json',    // Cache the JSON data source
     '/manifest.json',
     '/icons/icon-192x192.png',
     '/icons/icon-512x512.png'

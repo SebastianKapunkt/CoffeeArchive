@@ -1,0 +1,91 @@
+{
+  "categories": [
+    {
+      "id": "black",
+      "name": "Black Coffee",
+      "drinks": [
+        {
+          "id": "espresso",
+          "name": "Espresso",
+          "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          "cup": "Demitasse",
+          "dose_grams": 18,
+          "yield_grams": 36,
+          "brew_time_seconds": "25-30",
+          "temperature_celsius": 93,
+          "notes": "Single shot, rich crema essential."
+        },
+        {
+          "id": "americano",
+          "name": "Americano",
+          "video": "https://vimeo.com/123456789",
+          "cup": "Standard Mug (8oz)",
+          "espresso_shots": 2,
+          "water_volume_ml": 120,
+          "water_temperature_celsius": 90,
+          "instructions": "Pull espresso shots first, then add hot water."
+        }
+      ]
+    },
+    {
+      "id": "milk",
+      "name": "Milk Based",
+      "drinks": [
+        {
+          "id": "cappuccino",
+          "name": "Cappuccino",
+          "video": null,
+          "cup": "Cappuccino Cup (6oz)",
+          "espresso_shots": 1,
+          "milk_type": "Whole",
+          "milk_texture": "Microfoam (1-1.5cm)",
+          "milk_temperature_celsius": "60-65",
+          "art": "Optional basic latte art"
+        },
+        {
+          "id": "latte",
+          "name": "Latte",
+          "video": "https://www.youtube.com/watch?v=abcdef12345",
+          "cup": "Latte Glass/Mug (8-10oz)",
+          "espresso_shots": 1,
+          "milk_type": "Whole",
+          "milk_texture": "Silky microfoam (<1cm)",
+          "milk_temperature_celsius": "60-65"
+        }
+      ]
+    },
+    {
+      "id": "non_coffee",
+      "name": "Non-Coffee",
+      "drinks": [
+        {
+          "id": "hot_chocolate",
+          "name": "Hot Chocolate",
+          "video": null,
+          "cup": "Standard Mug (8oz)",
+          "chocolate_type": "Dark Cocoa Powder",
+          "chocolate_amount_grams": 25,
+          "milk_type": "Whole",
+          "sweetener": "Optional (Simple Syrup)",
+          "garnish": "Whipped Cream (Optional)"
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "name": "Other Drinks",
+      "drinks": [
+        {
+          "id": "cold_brew",
+          "name": "Cold Brew",
+          "video": null,
+          "cup": "Tall Glass (12oz)",
+          "brew_ratio": "1:8 (Coffee:Water by weight)",
+          "grind_size": "Coarse",
+          "steep_time_hours": "12-18",
+          "serving_suggestion": "Over ice, optional milk/sweetener."
+        }
+      ]
+    }
+  ]
+} 

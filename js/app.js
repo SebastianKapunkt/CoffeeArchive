@@ -11,24 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Data Loading ---
     async function loadData() {
         try {
-            const response = await fetch('config.yaml');
+            const response = await fetch('config.json'); // Fetch JSON instead of YAML
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const yamlText = await response.text();
-            // Use js-yaml library (make sure yaml.min.js is loaded)
-            // Note: Using a library here is *highly* recommended for robust YAML parsing.
-            // A truly vanilla approach would require a complex custom parser.
-            if (window.jsyaml) {
-                coffeeData = jsyaml.load(yamlText);
-                console.log("Coffee data loaded:", coffeeData);
-                // Initial render based on hash or default
-                handleHashChange();
-            } else {
-                throw new Error("js-yaml library not found.");
-            }
+            const jsonText = await response.text(); // Get text content
+            // Use built-in JSON parsing
+            coffeeData = JSON.parse(jsonText);
+            console.log("Coffee data loaded:", coffeeData);
+            // Initial render based on hash or default
+            handleHashChange();
+            // No need to check for js-yaml library anymore
         } catch (error) {
-            console.error("Error loading or parsing config.yaml:", error);
+            // Update error message
+            console.error("Error loading or parsing config.json:", error);
             appContent.innerHTML = `<p class="error">Error loading configuration. Please try again later.</p>`;
         }
     }
